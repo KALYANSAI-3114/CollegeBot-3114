@@ -7,8 +7,8 @@ from langchain_community.vectorstores import Chroma
 from langchain_core.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
 from bs4 import BeautifulSoup
-import os
 import shutil
+import os
 from dotenv import load_dotenv
 
 load_dotenv() 
@@ -226,7 +226,14 @@ prompt = PromptTemplate(
 
 # ==================== LLM SETUP ====================
 # Get API key from environment variable
-api_key = os.getenv("SARVAM_API_KEY")
+try:
+    import streamlit as st
+    api_key = st.secrets["SARVAM_API_KEY"]
+except:
+    api_key = os.getenv("SARVAM_API_KEY")
+
+if not api_key:
+    raise ValueError("❌ SARVAM_API_KEY not found! Please configure it in Streamlit secrets.")
 
 llm = ChatOpenAI(
     api_key=api_key,
