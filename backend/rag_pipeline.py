@@ -1,8 +1,7 @@
 from langchain_core.documents import Document
 from langchain_community.document_loaders import WebBaseLoader
 from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain.chains import RetrievalQA
-
+from langchain_classic.chains import RetrievalQA
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain_core.prompts import PromptTemplate
