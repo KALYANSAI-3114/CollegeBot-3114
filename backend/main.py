@@ -1,12 +1,10 @@
 import streamlit as st
 import logging
 
-# silence langchain logs
 logging.getLogger("langchain").setLevel(logging.ERROR)
 
-from rag_pipeline import answer_question
+from backend.rag_pipeline import answer_question  # ✅ FIXED
 
-# ---------------- UI CONFIG ----------------
 st.set_page_config(
     page_title="CollegeBot",
     page_icon="🎓",
@@ -16,15 +14,12 @@ st.set_page_config(
 st.title("🎓 CollegeBot")
 st.caption("Ask anything about VVIT – courses, faculty, placements, campus")
 
-# ---------------- SESSION STATE ----------------
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
-# ---------------- CHAT INPUT ----------------
 question = st.chat_input("Ask your question here...")
 
 if question:
-    # user message
     st.session_state.chat_history.append(
         {"role": "user", "content": question}
     )
@@ -33,16 +28,13 @@ if question:
         try:
             response = answer_question(question)
             answer_text = response.get("answer", "No answer found.")
-            sources = response.get("source_details", [])
         except Exception as e:
-            answer_text = "⚠️ Something went wrong. Please try again."
+            answer_text = f"⚠️ Error: {str(e)}"
 
-    # assistant message
     st.session_state.chat_history.append(
         {"role": "assistant", "content": answer_text}
     )
 
-# ---------------- DISPLAY CHAT ----------------
 for msg in st.session_state.chat_history:
     with st.chat_message(msg["role"]):
         st.markdown(msg["content"])
