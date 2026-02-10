@@ -17,5 +17,4 @@ chromadb
 beautifulsoup4
 lxml
 
-# FastAPI
 streamlit
