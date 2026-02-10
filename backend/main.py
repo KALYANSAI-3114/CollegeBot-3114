@@ -3,7 +3,7 @@ import logging
 
 logging.getLogger("langchain").setLevel(logging.ERROR)
 
-from backend.rag_pipeline import answer_question 
+from rag_pipeline import answer_question 
 
 st.set_page_config(
     page_title="CollegeBot",
