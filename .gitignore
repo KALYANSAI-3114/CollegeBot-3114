@@ -1,0 +1,75 @@
+# ======================
+# Python
+# ======================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# ======================
+# Virtual Environments
+# ======================
+venv/
+.env/
+.env.local
+.venv/
+
+# ======================
+# Streamlit
+# ======================
+.streamlit/secrets.toml
+
+# ======================
+# OS files
+# ======================
+.DS_Store
+Thumbs.db
+
+# ======================
+# IDEs & Editors
+# ======================
+.vscode/
+.idea/
+*.iml
+
+# ======================
+# Logs
+# ======================
+*.log
+
+# ======================
+# Jupyter
+# ======================
+.ipynb_checkpoints/
+
+# ======================
+# Vector DB / RAG
+# ======================
+chroma/
+chromadb/
+vectorstore/
+faiss_index/
+*.sqlite3
+
+# ======================
+# Model cache (VERY IMPORTANT)
+# ======================
+.cache/
+cache/
+models/
+hf_cache/
+sentence_transformers/
+
+# ======================
+# Data (optional)
+# ======================
+# Uncomment if PDFs are large or private
+# data/
+# *.pdf
+
+# ======================
+# Secrets & Keys
+# ======================
+*.env
+*.key
+*.pem

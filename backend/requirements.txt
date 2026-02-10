@@ -1,0 +1,21 @@
+#Force CPU-only PyTorch (Python 3.13 compatible)
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.10.0+cpu
+
+# Sentence embeddings
+sentence-transformers
+
+# LangChain stack
+langchain
+langchain-community
+langchain-core
+langchain-openai
+langchain-huggingface
+chromadb
+
+# Parsing
+beautifulsoup4
+lxml
+
+# FastAPI
+streamlit
